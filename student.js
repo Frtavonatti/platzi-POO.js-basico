@@ -1,4 +1,4 @@
-export class Student {
+class Student {
     constructor({
       name,
       email,
@@ -51,7 +51,7 @@ class BasicStudent extends Student{
     }
 }
 
-class ExpertStudent extends Student{
+export default class ExpertStudent extends Student{
     constructor(props) {
         super(props); 
     }
@@ -61,24 +61,4 @@ class ExpertStudent extends Student{
     }
 }
 
-const juan2 = new FreeStudent({
-    name: "JuanDC",
-    username: "juandc",
-    email: "juanito@juanito.com",
-    twitter: "fjuandc",
-    learningPaths: [
-      escuelaWeb,
-      escuelaVgs,
-    ],
-});
-  
-const miguelito2 = new BasicStudent({
-    name: "Miguelito",
-    username: "migelitofeliz",
-    email: "miguelito@juanito.com",
-    instagram: "migelito_feliz",
-    learningPaths: [
-      escuelaWeb,
-      escuelaData,
-    ],
-});
+export {Student, FreeStudent ,BasicStudent, ExpertStudent};

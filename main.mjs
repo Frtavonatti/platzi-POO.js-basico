@@ -1,3 +1,8 @@
+import { Course } from "./courses.js"
+import { LearningPath } from "./learningPaths.js"
+import { Student, FreeStudent } from "./student.js"
+// , BasicStudent, ExpertStudent
+
 function videoPlay(id) {
     const urlSecreta = "https://platziultrasecretomasquelanasa.com/" + id;
     console.log("Se está reproduciendo desde la url " + urlSecreta);
@@ -8,7 +13,7 @@ function videoStop(id) {
     console.log("Pausamos la url " + urlSecreta);
 }
   
-export class PlatziClass {
+class PlatziClass {
     constructor({
       name,
       videoID,
@@ -24,41 +29,77 @@ export class PlatziClass {
       videoStop(this.videoID);
     }
 }
-    
-  
-class LearningPath {
-    constructor({
-      name,
-      courses = [],
-    }) {
-      this.name = name;
-      this.courses = courses;
-    }
-}
-  
+
+
+// CURSOS
+
+const cursoProgBasica = new Course({
+  name: "Curso Gratis de Programación Básica",
+  isFree: true,
+});
+
+const cursoDefinitivoHTML = new Course({
+  name: "Curso Definitivo de HTML y CSS",
+});
+
+const cursoPracticoHTML = new Course({
+  name: "Curso Practico de HTML y CSS",
+  lang: 'English',
+});
+
+
+
+// ESCUELAS
+
 const escuelaWeb = new LearningPath({
-    name: "Escuela de Desarrollo Web",
-    courses: [
-      cursoProgBasica,
-      cursoDefinitivoHTML,
-      cursoPracticoHTML,
-    ],
+  name: "Escuela de Desarrollo Web",
+  courses: [
+    cursoProgBasica,
+    cursoDefinitivoHTML,
+    cursoPracticoHTML,
+  ],
 });
-  
+
 const escuelaData = new LearningPath({
-    name: "Escuela de Data Science",
-    courses: [
-      cursoProgBasica,
-      "Curso DataBusiness",
-      "Curso Dataviz",
-    ],
+  name: "Escuela de Data Science",
+  courses: [
+    cursoProgBasica,
+    "Curso DataBusiness",
+    "Curso Dataviz",
+  ],
 });
-  
+
 const escuelaVgs = new LearningPath({
-    name: "Escuela de Vidweojuegos",
-    courses: [
-      cursoProgBasica,
-      "Curso de Unity",
-      "Curso de Unreal",
-    ],
+  name: "Escuela de Vidweojuegos",
+  courses: [
+    cursoProgBasica,
+    "Curso de Unity",
+    "Curso de Unreal",
+  ],
 })
+
+
+
+// ESTUDIANTES
+
+const juan = new FreeStudent({
+  name: "JuanDC",
+  username: "juandc",
+  email: "juanito@juanito.com",
+  twitter: "fjuandc",
+  learningPaths: [
+    escuelaWeb,
+    escuelaVgs,
+  ],
+});
+
+const miguelito = new Student({
+  name: "Miguelito",
+  username: "migelitofeliz",
+  email: "miguelito@juanito.com",
+  instagram: "migelito_feliz",
+  learningPaths: [
+    escuelaWeb,
+    escuelaData,
+  ],
+});
