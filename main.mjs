@@ -1,7 +1,7 @@
 import { Course } from "./courses.js"
 import { LearningPath } from "./learningPaths.js"
-import { Student, FreeStudent } from "./student.js"
-// , BasicStudent, ExpertStudent
+import { Student, FreeStudent, BasicStudent, ExpertStudent} from "./student.js"
+
 
 function videoPlay(id) {
     const urlSecreta = "https://platziultrasecretomasquelanasa.com/" + id;
@@ -13,7 +13,7 @@ function videoStop(id) {
     console.log("Pausamos la url " + urlSecreta);
 }
   
-class PlatziClass {
+export class PlatziClass {
     constructor({
       name,
       videoID,
@@ -46,6 +46,8 @@ const cursoPracticoHTML = new Course({
   name: "Curso Practico de HTML y CSS",
   lang: 'English',
 });
+
+export { cursoProgBasica, cursoDefinitivoHTML, cursoPracticoHTML }
 
 
 
@@ -93,7 +95,7 @@ const juan = new FreeStudent({
   ],
 });
 
-const miguelito = new Student({
+const miguelito = new BasicStudent({
   name: "Miguelito",
   username: "migelitofeliz",
   email: "miguelito@juanito.com",

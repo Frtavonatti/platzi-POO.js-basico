@@ -22,7 +22,7 @@ class Student {
     }
 }
 
-class FreeStudent extends Student{
+class FreeStudent extends Student {
     constructor(props) {
         super(props); 
     }
@@ -36,8 +36,8 @@ class FreeStudent extends Student{
     }
 }
 
-class BasicStudent extends Student{
-    constructor(props) {
+class BasicStudent extends Student {
+    constructor(props) { 
         super(props); 
     }
 
@@ -51,7 +51,7 @@ class BasicStudent extends Student{
     }
 }
 
-export default class ExpertStudent extends Student{
+class ExpertStudent extends Student {
     constructor(props) {
         super(props); 
     }
@@ -61,4 +61,5 @@ export default class ExpertStudent extends Student{
     }
 }
 
-export {Student, FreeStudent ,BasicStudent, ExpertStudent};
+
+export { Student, FreeStudent, BasicStudent, ExpertStudent };
