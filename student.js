@@ -1,3 +1,5 @@
+import { Comment } from "./comment.js";
+
 class Student {
     constructor({
       name,
@@ -19,6 +21,15 @@ class Student {
       };
       this.approvedCourses = approvedCourses;
       this.learningPaths = learningPaths;
+    }
+
+    publicarComentario(commentContent) {
+        const comment = new Comment({
+            content: commentContent,
+            studentName: this.name,
+            studentRole: 'Student',
+        })
+        comment.publicar()
     }
 }
 
@@ -61,5 +72,24 @@ class ExpertStudent extends Student {
     }
 }
 
+class TeacherStudent extends Student {
+    constructor(props) {
+        super(props); 
+    }
 
-export { Student, FreeStudent, BasicStudent, ExpertStudent };
+    approveCourse(newCourse) {
+        this.approvedCourses.push(newCourse)
+    }
+
+    publicarComentario(commentContent) {
+        const comment = new Comment({
+            content: commentContent,
+            studentName: this.name,
+            studentRole: 'Teacher',
+        })
+        comment.publicar()
+    }
+}
+
+
+export { Student, FreeStudent, BasicStudent, ExpertStudent, TeacherStudent };

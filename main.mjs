@@ -1,6 +1,7 @@
 import { Course } from "./courses.js"
 import { LearningPath } from "./learningPaths.js"
-import { Student, FreeStudent, BasicStudent, ExpertStudent} from "./student.js"
+import { Student, FreeStudent, BasicStudent, ExpertStudent, TeacherStudent} from "./student.js"
+import { Comment } from "./comment.js"
 
 
 function videoPlay(id) {
@@ -105,3 +106,13 @@ const miguelito = new BasicStudent({
     escuelaData,
   ],
 });
+
+const freddy = new TeacherStudent({
+  name: "Freddy Vega",
+  username: "freddier",
+  email: "fred@juanito.com",
+});
+
+freddy.publicarComentario('Hola Banana')
+miguelito.publicarComentario('Está del asco')
+console.log(freddy)
